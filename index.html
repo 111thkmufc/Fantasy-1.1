@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* 第一本字典：載入 A 字型 (你的首選字型，例如辰宇落雁體) */
+@font-face {
+  font-family: 'Font-A';
+  src: url('ChenYuluoyan-Thin-Monospaced.ttf') format('truetype');
+}
+
+/* 第二本字典：載入 B 字型 (你的備用字型，例如霞鶩文楷或系統黑體) */
+@font-face {
+  font-family: 'Font-B';
+  src: url('ChenYuluoyan-2.0-Thin.ttf') format('truetype');
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  /* 🎯 核心補丁在這裡：字體替換順序 
+    瀏覽器會由左至右讀取：先用 Font-A -> 缺字用 Font-B -> 再缺字用系統預設無襯線體
+  */
+  font-family: 'Font-A', 'Font-B', sans-serif;
+}
+
+.container {
+  text-align: left;
+}
+
+.text {
+  font-size: clamp(10px, 4vw, 24px);
+  line-height: 1.5;
+  color: #3a3a3a;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+/* 淡入動畫 */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="text fade-in">
+    「掙脫現實的重力，墜入一場斑斕的夢境。」 
+  </div>
+</div>
+
+</body>
+</html>
